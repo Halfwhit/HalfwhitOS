@@ -1,0 +1,3 @@
+#! /bin/bash
+pacwall
+qtile start
