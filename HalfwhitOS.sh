@@ -2,8 +2,8 @@
 
 echo "Welcome to HalfwhitOS, this script will install and configure the system to specification, and may ask for sudo password at times."
 
-# Install XOrg, as well as git and vim
-sudo pacman -Sy xorg git vim
+# Install XOrg, as well as git(+openssh) and vim
+sudo pacman -Sy xorg git vim openssh
 
 # Clone and install the paru repository, and then let paru manage it's self.
 while true; do
