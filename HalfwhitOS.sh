@@ -1,22 +1,22 @@
 #! /bin/bash
 
-echo "Welcome to HalfwhitOS, this script will install and configure the system to specification, and may ask for sudo password at times."
+echo "\nWelcome to HalfwhitOS, this script will install and configure the system to specification, and may ask for sudo password at times.\n"
 
 # Install XOrg, as well as git(+openssh) and vim
 sudo pacman -Sy xorg git vim openssh networkmanager
 
 # Clone and install the paru repository, and then let paru manage it's self.
 while true; do
-	read -r -p "Do you wish to bootstrap paru? " answer
+	read -r -p "\nDo you wish to bootstrap paru? \n" answer
 	case $answer in
-		[Yy]* ) git clone https://aur.archlinux.org/paru; cd paru; makepkg -si; cd ..; rm -rf paru; paru -S paru parui-git; echo "\nparu ready to use.\n"; break;;
+		[Yy]* ) git clone https://aur.archlinux.org/paru; cd paru; makepkg -si; cd ..; rm -rf paru; paru -S devtools asp bat; paru -S paru parui-git; echo "\nparu ready to use.\n"; break;;
 		[Nn]* ) break;;
-		* ) echo "Please answer Y or N.";;
+		* ) echo "\nPlease answer Y or N.\n";;
 	esac
 done
 
 # Setup lemurs and qtile (+configs)
-paru -S xsel xclip lemurs-git qtile pacwall-git hsetroot alacritty python-setuptools pycritty devtools
+paru -S xsel xclip lemurs-git qtile pacwall-git hsetroot alacritty python-setuptools pycritty
 sudo mkdir /etc/lemurs/wms; sudo cp ./etc-configs/lemurs-qtile /etc/lemurs/wms/qtile 
 sudo systemctl enable lemurs.service
 # configs
