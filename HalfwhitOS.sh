@@ -39,3 +39,6 @@ paru -S qemu-full libvirt dnsmasq podman podman-tui cockpit cockpit-machines coc
 sudo systemctl enable --now cockpit.socket
 
 # doom-emacs
+paru -S emacs-nativecomp
+git clone --depth 1 --single-branch https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
