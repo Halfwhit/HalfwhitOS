@@ -16,7 +16,7 @@ while true; do
 done
 
 # Setup lemurs and qtile (+configs)
-paru -S xsel xclip lemurs-git qtile pacwall-git hsetroot alacritty python-setuptools pycritty
+paru -S xsel xclip lemurs-git qtile pacwall-git hsetroot alacritty python-setuptools pycritty devtools
 sudo mkdir /etc/lemurs/wms; sudo cp ./etc-configs/lemurs-qtile /etc/lemurs/wms/qtile 
 sudo systemctl enable lemurs.service
 # configs
