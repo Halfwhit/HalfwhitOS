@@ -36,5 +36,6 @@ paru -S irssi perl-libwww
 
 #Setup virtualisation
 paru -S qemu-full libvirt dnsmasq podman podman-tui cockpit cockpit-machines cockpit-packagekit cockpit-podman virt-manager
+sudo systemctl enable --now cockpit.socket
 
 # doom-emacs
