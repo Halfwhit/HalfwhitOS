@@ -10,7 +10,7 @@ sudo pacman -Sy xorg git vim openssh networkmanager
 # Clone and install the paru repository, and then let paru manage it's self.
 while true; do
 	echo
-	read -r -p "Do you wish to bootstrap paru?" answer
+	read -r -p "Do you wish to bootstrap paru? [y/n] " answer
 	echo
 	case $answer in
 		[Yy]* ) git clone https://aur.archlinux.org/paru; cd paru; makepkg -si; cd ..; rm -rf paru; paru -S devtools asp bat; paru -S paru parui-git; echo; echo "Paru ready to use."; echo; break;;
