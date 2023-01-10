@@ -1,17 +1,21 @@
 #! /bin/bash
 
-echo "\nWelcome to HalfwhitOS, this script will install and configure the system to specification, and may ask for sudo password at times.\n"
+echo
+echo "Welcome to HalfwhitOS, this script will install and configure the system to specification, and may ask for sudo password at times."
+echo
 
 # Install XOrg, as well as git(+openssh) and vim
 sudo pacman -Sy xorg git vim openssh networkmanager
 
 # Clone and install the paru repository, and then let paru manage it's self.
 while true; do
-	read -r -p "\nDo you wish to bootstrap paru? \n" answer
+	echo
+	read -r -p "Do you wish to bootstrap paru?" answer
+	echo
 	case $answer in
-		[Yy]* ) git clone https://aur.archlinux.org/paru; cd paru; makepkg -si; cd ..; rm -rf paru; paru -S devtools asp bat; paru -S paru parui-git; echo "\nparu ready to use.\n"; break;;
+		[Yy]* ) git clone https://aur.archlinux.org/paru; cd paru; makepkg -si; cd ..; rm -rf paru; paru -S devtools asp bat; paru -S paru parui-git; echo; echo "Paru ready to use."; echo; break;;
 		[Nn]* ) break;;
-		* ) echo "\nPlease answer Y or N.\n";;
+		* ) echo; echo "Please answer Y or N."; echo;;
 	esac
 done
 
@@ -35,7 +39,7 @@ paru -S libreoffice-fresh libreoffice-fresh-en-gb
 paru -S irssi perl-libwww
 
 #Setup virtualisation
-paru -S qemu-full libvirt dnsmasq podman podman-tui cockpit cockpit-machines cockpit-packagekit cockpit-podman virt-manager
+paru -S qemu-full libvirt dnsmasq podman podman-tui cockpit cockpit-machines cockpit-packagekit cockpit-podman virt-manager distrobox
 sudo systemctl enable --now cockpit.socket
 
 # doom-emacs
