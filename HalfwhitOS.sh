@@ -39,8 +39,10 @@ paru -S libreoffice-fresh libreoffice-fresh-en-gb
 paru -S irssi perl-libwww
 
 #Setup virtualisation
-paru -S qemu-full libvirt dnsmasq podman podman-tui cockpit cockpit-machines cockpit-packagekit cockpit-podman virt-manager distrobox
+paru -S qemu-full libvirt dnsmasq podman podman-tui cockpit cockpit-machines cockpit-packagekit cockpit-podman virt-manager distrobox fuse-overlayfs
 sudo systemctl enable --now cockpit.socket
+sudo usermod -aG libvirt $USER
+sudo virsh net-autostart default
 
 # doom-emacs
 paru -S emacs-nativecomp
