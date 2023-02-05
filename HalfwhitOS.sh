@@ -30,7 +30,7 @@ systemctl --user enable pacwall-watch-packages.path
 systemctl --user enable pacwall-watch-updates.timer
 
 # First round of software installs
-paru -S topgrade btop neovim neovide dunst github-cli
+paru -S topgrade-bin btop neovim neovide dunst github-cli
 paru -S fish fisher starship nerd-fonts-complete-starship
 paru -S fd ripgrep exa
 paru -S librewolf-bin librewolf-firefox-shim librewolf-extension-bitwarden librewolf-ublock-origin 
@@ -40,6 +40,7 @@ paru -S irssi perl-libwww
 
 #Setup virtualisation
 paru -S qemu-full libvirt dnsmasq podman podman-tui cockpit cockpit-machines cockpit-packagekit cockpit-podman virt-manager distrobox fuse-overlayfs
+sudo systemctl enable --now libvirtd.service
 sudo systemctl enable --now cockpit.socket
 sudo usermod -aG libvirt $USER
 sudo virsh net-autostart default
